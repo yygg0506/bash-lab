@@ -1,6 +1,6 @@
 # lib_check_number_range
 
-lib_chcek_number_range(){
+lib_check_number_range(){
     ### variables ###
     local input="$1"
     local min="$2"

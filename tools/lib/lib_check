@@ -1,0 +1,16 @@
+#!/bin/bash
+
+lib_check(){
+    local path="/root/clilab/tools/lib/check"
+    local file
+
+    ##source##
+    for file in "$path"/lib_*; do
+        source "$file"
+    done
+}
+
+# [range]: check value's range
+# usage: lib_check_range [q] value [min] [max]
+# 
+# [input]: 

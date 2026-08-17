@@ -30,7 +30,7 @@ lib_number_nicenum(){
     ### check ###
     lib_check_number_int "$inte" || return 1 # "[bad] bad input (inte)"
 
-    [ -z $deci ] || lib_check_number_range "$deci" 0 "" || return 2 # "[bad] bad input (deci)"
+    [ -z "$deci" ] || lib_check_number_range "$deci" 0 "" || return 2 # "[bad] bad input (deci)"
 
     ### main ###
     if [ "${inte%${inte#?}}" = "-" ]; then

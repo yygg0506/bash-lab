@@ -41,12 +41,12 @@ lib_number_nicenum_main(){
     [ -n "$deci" ] && result="${DD}${deci}"
 
     while [ "$inte" -gt 999 ]; do
-        rema=$(($inte % 1000))
+        rema=$((10#$inte % 1000))
         while [ "${#rema}" -lt 3 ]; do
             rema="0$rema"
         done
         result="${TD}${rema}${result}"
-        inte=$(($inte / 1000))
+        inte=$((10#$inte / 1000))
     done
 
     nicenum="${inte}${result}"

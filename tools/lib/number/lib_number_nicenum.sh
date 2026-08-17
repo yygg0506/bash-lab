@@ -1,23 +1,12 @@
 # lib_number_nicenum
 
 lib_number_nicenum(){
-    ### getopts ###
-    local DD="."
-    local TD=","
-    local opt
-    local OPTIND=1
-    while getopts 'd:t:' opt; do
-        case $opt in
-            d) DD=$OPTARG;;
-            t) TD=$OPTARG;;
-        esac
-    done
-    shift $(($OPTIND - 1))
-
     ### variables ###
     local input="$1"
     local rema
     local nicenum
+    local DD="."
+    local TD=","
 
     local sym="$(echo "$input" | sed "s/[^$DD]//g" )"
     if [ -z "$sym" ]; then
@@ -30,7 +19,6 @@ lib_number_nicenum(){
 
     ### check ###
     lib_check_number_int "$inte" || return 1 # "[bad] bad input (inte)"
-
     [ -z "$deci" ] || lib_check_number_range "$deci" 0 "" || return 2 # "[bad] bad input (deci)"
 
     ### main ###

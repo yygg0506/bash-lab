@@ -8,8 +8,8 @@ lib_check_number_range(){
 
     ### cehck ###
     lib_check_number_int "$input" || return 1 #[bad] bad value
-    lib_check_number_int "$min" || return 2 #[bad] bad value
-    lib_check_number_int "$max" || return 3 #[bad] bad value
+	[ -z $max ] || lib_check_number_int "$min" || return 2 #[bad] bad value
+	[ -z $max ] || lib_check_number_int "$max" || return 3 #[bad] bad value
 
     ### main ###
     [ -n "$min" ] && [ "$input" -lt "$min" ] && return 4 #[bad] too small

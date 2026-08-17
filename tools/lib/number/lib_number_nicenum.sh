@@ -22,6 +22,7 @@ lib_number_nicenum(){
     local sym="$(echo "$input" | sed "s/[^$DD]//g" )"
     if [ -z "$sym" ]; then
         local inte="$input"
+        local deci=""
     else
         local inte="${input%$DD*}"
         local deci="${input#*$DD}"

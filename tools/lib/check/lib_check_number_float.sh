@@ -19,7 +19,8 @@ lib_check_number_float(){
     ### vari ###
     local float="$1"
     local sym="$(echo "$float" | sed 's/[^.]//g')"
-    [ -n "$sym" ] && { local inte="${float%.*}"; local deci="${float#*.}"; }
+    local inte; local deci
+    [ -n "$sym" ] && { inte="${float%.*}"; deci="${float#*.}"; }
 
     #debug
     [ "$debug" -eq 1 ] && printf '%s\n\t%s\n\t%s\n\t%s\n\t%s\n' "[debug] lib_check_number_float:" "float=$float" "sym=$sym" "inte=$inte" "deci=$deci" >&2
